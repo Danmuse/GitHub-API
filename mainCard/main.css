@@ -1,0 +1,203 @@
+/* https://www.frontendmentor.io/challenges/github-user-search-app-Q09YOgaH6 */
+
+:root {
+  --background: rgb(20, 28, 47);
+  --background-card: rgb(31, 42, 72);
+  --BTN-search: rgb(2, 120, 254);
+  --BTN-search-border: none;
+  --text-color: aliceblue;
+  --text-secondary-color: lightgrey;
+  --text-input-color: lightgrey;
+  --shadow: none;
+}
+
+[data-theme='light'] {
+  --background: rgb(245, 248, 255);
+  --background-card: white;
+  --BTN-search: rgb(2, 120, 254);
+  --BTN-search-border: rgba(0, 90, 194, 0.7);
+  --text-color: rgba(0, 0, 0, 0.8);
+  --text-secondary-color: lightgrey;
+  --text-input-color: lightgrey;
+  --shadow: rgb(184, 188, 200);
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'JetBrains Mono', monospace, Calibri, sans-serif;
+}
+
+::placeholder {
+  font-size: 0.9rem;
+  color: var(--text-input-color);
+}
+
+html,
+body {
+  box-sizing: inherit;
+  height: 100%;
+}
+
+body {
+  color: var(--text-color);
+  background-color: var(--background);
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 768px;
+  min-width: 320px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.themeContainer {
+  gap: 0.7rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+/* Searcher */
+
+.searchContainer {
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  border-radius: 0.7rem;
+  box-shadow: 0 0 10px var(--shadow);
+  background-color: var(--background-card);
+}
+
+.searchContainer form {
+  gap: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.magnifying-glass {
+  height: 20px;
+}
+
+#searcher {
+  padding: 0.3rem;
+  font-size: 0.9rem;
+  color: var(--text-input-color);
+  /* text-overflow: ellipsis; */
+  outline: none;
+  border: none;
+  background-color: transparent;
+  flex-grow: 1;
+}
+
+@media screen and (max-width: 424px) {
+  .wrapper {
+    padding: 1rem;
+  }
+  .searchContainer {
+    padding: 0.5rem;
+  }
+  .searchContainer form {
+    gap: 0.6rem;
+  }
+  .magnifying-glass {
+    display: none;
+  }
+  #searcher {
+    width: 1rem; /* Debug */
+  }
+}
+
+.submit {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  cursor: pointer;
+  border-radius: 0.5rem;
+  border: var(--BTN-search-border);
+  background-color: var(--BTN-search);
+}
+
+/* Main user's content */
+
+.userContainer {
+  margin-top: 1.5rem;
+  padding: 1.5rem 1.25rem;
+  border-radius: 0.7rem;
+  box-shadow: 0 0 10px var(--shadow);
+  background-color: var(--background-card);
+  display: grid;
+  grid-template: repeat(4, min-content) / min-content 1fr;
+}
+
+.userContainer > * {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.userContainer p {
+  font-size: 0.9rem;
+  color: var(--text-secondary-color);
+}
+
+.avatar {
+  margin: 0 1rem 1rem 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--shadow);
+  grid-row: span 2;
+}
+
+.namesContainer {
+  margin: auto 0;
+  font-size: 1.3rem;
+  display: block;
+}
+
+.nickname {
+  font-size: 1rem;
+  text-decoration: none;
+  color: var(--BTN-search);
+}
+
+.joined {
+  margin: 0 0 auto;
+}
+
+.profile__bio {
+  margin: 0.6rem 0.1rem 0.4rem;
+  grid-column: 1 / -1;
+}
+
+/* Stats */
+
+.stats {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 0.7rem;
+  background-color: var(--background);
+  justify-content: space-between;
+  grid-column: 1 / -1;
+}
+
+.stats h3 {
+  margin: 0.5rem 0 0;
+  text-align: center;
+}

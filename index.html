@@ -1,0 +1,78 @@
+<!-- https://www.frontendmentor.io/challenges/github-user-search-app-Q09YOgaH6 -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/github.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./mainCard/main.css" />
+    <script type="module" defer src="./mainCard/index.js"></script>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <title>GitHub API</title>
+  </head>
+  <body>
+    <main>
+      <div class="wrapper">
+        <header>
+          <h1>devfinder</h1>
+          <div class="themeContainer">
+            <small>LIGHT</small>
+            <img src="./assets/sun-solid.svg" type="image/svg+xml" />
+          </div>
+        </header>
+        <section class="searchContainer">
+          <form>
+            <label class="magnifying-glass" for="searcher"
+              ><img src="./assets/magnifying-glass.svg" type="image/svg+xml"
+            /></label>
+            <input
+              id="searcher"
+              type="search"
+              placeholder="Search GitHub username"
+            />
+            <input class="submit" type="submit" value="Search" />
+          </form>
+        </section>
+        <article class="userContainer">
+          <img
+            class="avatar"
+            src="./assets/avatar.png"
+            alt="Avatar"
+            type="image/png"
+          />
+          <h2 class="namesContainer">
+            <span class="name">Daniel Di Módica</span>
+            <br />
+            <a
+              href="https://github.com/Danmuse"
+              class="nickname"
+              target="_blank"
+              >@Danmuse</a
+            >
+          </h2>
+          <p class="joined">Joined 25 Jun 2011</p>
+          <p class="profile__bio">
+            I am an electronic technician with an aspiration to robotics and an
+            enthusiast for modern technologies.
+          </p>
+          <section class="stats">
+            <div class="repositories">
+              <small>Repos</small>
+              <h3>7</h3>
+            </div>
+            <div class="followers">
+              <small>Followers</small>
+              <h3>369</h3>
+            </div>
+            <div class="following">
+              <small>Following</small>
+              <h3>81</h3>
+            </div>
+          </section>
+        </article>
+      </div>
+    </main>
+  </body>
+</html>

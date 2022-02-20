@@ -142,7 +142,7 @@ header {
 
 .userContainer {
   margin-top: 1.5rem;
-  padding: 1.5rem 1.25rem;
+  padding: 1.3rem;
   border-radius: 0.7rem;
   box-shadow: 0 0 10px var(--shadow);
   background-color: var(--background-card);
@@ -188,7 +188,7 @@ header {
 }
 
 .profile__bio {
-  margin: 0.6rem 0.1rem 0.4rem;
+  margin: 0.6rem 0 0.4rem;
   grid-column: 1 / -1;
 }
 
@@ -199,12 +199,16 @@ header {
   padding: 1rem;
   border-radius: 0.7rem;
   background-color: var(--background);
-  justify-content: space-between;
+  justify-content: space-evenly;
   grid-column: 1 / -1;
 }
 
 .stats small {
   color: var(--text-secondary-color);
+}
+
+.followers {
+  margin: 0 2rem;
 }
 
 .stats h3 {
@@ -213,22 +217,75 @@ header {
 }
 
 .itemsContainer {
-  padding: 0 0.1rem;
+  grid-column: 1 / -1;
+  overflow: scroll;
+  display: grid;
+  grid-template: repeat(1, min-content) / repeat(2, 1fr);
+  grid-auto-flow: column;
+  justify-items: center;
+  column-gap: 1.2rem;
+}
+
+.itemsContainer__primary > *,
+.itemsContainer__secondary > * {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.itemsContainer a {
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--text-secondary-color);
+}
+
+.itemsContainer a,
+.itemsContainer p {
+  margin: 0.7rem 0;
+}
+
+.itemsContainer img {
+  padding-right: 0.7rem;
+  filter: var(--items-color);
+}
+
+@media (max-width: 520px) {
+  .stats {
+    justify-content: space-between;
+  }
+  .followers {
+    margin: 0;
+  }
+  .itemsContainer {
+    display: block;
+  }
+}
+
+/* Flex alternative on items' section 
+
+.itemsContainer {
   grid-column: span 2;
 }
 
 .itemsContainer a {
-  text-decoration: none;
   font-size: 0.9rem;
+  text-decoration: none;
   color: var(--text-secondary-color);
+}
+
+.itemsContainer a,
+.itemsContainer p {
+  margin: 0.7rem 0;
 }
 
 .itemsContainer__primary,
 .itemsContainer__secondary {
-  margin-right: auto;
+  margin: 0 auto;
 }
 
-.itemsContainer__primary > *, .itemsContainer__secondary > * {
+.itemsContainer__primary > *,
+.itemsContainer__secondary > * {
+  margin: 0 1.2rem 0 auto;
   display: flex;
   align-items: center;
 }
@@ -238,3 +295,15 @@ header {
   padding-right: 0.7rem;
   filter: var(--items-color);
 }
+
+@media (max-width: 520px) {
+  .stats {
+    justify-content: space-between;
+  }
+  .followers {
+    margin: 0;
+  }
+  .itemsContainer {
+    display: block;
+  }
+} */

@@ -7,19 +7,19 @@
   --BTN-search-border: none;
   --text-color: aliceblue;
   --text-secondary-color: lightgrey;
-  --text-input-color: rgb(180, 180, 180);
+  --text-input-color: rgb(175, 175, 175);
   --items-color: invert(1);
   --shadow: none;
 }
 
 [data-theme='light'] {
-  --background: rgb(245, 248, 255);
+  --background: rgb(170, 200, 255);
   --background-card: whitesmoke;
   --BTN-search: rgb(2, 120, 254);
   --BTN-search-border: rgba(0, 90, 194, 0.7);
   --text-color: rgba(0, 0, 0, 0.8);
-  --text-secondary-color: rgb(180, 180, 180);
-  --text-input-color: lightgrey;
+  --text-secondary-color: grey;
+  --text-input-color: rgb(175, 175, 175);
   --items-color: none;
   --shadow: rgb(184, 188, 200);
 }
@@ -159,7 +159,8 @@ header {
   align-items: center;
 }
 
-.userContainer p, .userContainer small {
+.userContainer p,
+.userContainer small {
   font-size: 0.9rem;
   color: var(--text-secondary-color);
 }
@@ -187,13 +188,27 @@ header {
 }
 
 .joined {
-  color: var(--text-input-color) !important;
   margin: 0 0 auto;
+  color: var(--text-input-color) !important;
 }
 
 .profile__bio {
   margin: 0.6rem 0 0.4rem;
   grid-column: 1 / -1;
+}
+
+@media screen and (min-width: 680px) {
+  .userContainer {
+    grid-template: repeat(4, min-content) / min-content 1fr 1fr;
+  }
+  .joined {
+    margin: auto 0.35rem;
+    justify-self: right;
+  }
+  .profile__bio {
+    margin: 0 0 auto;
+    grid-column: 2 / -1;
+  }
 }
 
 @media screen and (max-width: 425px) {

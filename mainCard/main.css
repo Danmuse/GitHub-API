@@ -7,18 +7,18 @@
   --BTN-search-border: none;
   --text-color: aliceblue;
   --text-secondary-color: lightgrey;
-  --text-input-color: lightgrey;
+  --text-input-color: rgb(180, 180, 180);
   --items-color: invert(1);
   --shadow: none;
 }
 
 [data-theme='light'] {
   --background: rgb(245, 248, 255);
-  --background-card: white;
+  --background-card: whitesmoke;
   --BTN-search: rgb(2, 120, 254);
   --BTN-search-border: rgba(0, 90, 194, 0.7);
   --text-color: rgba(0, 0, 0, 0.8);
-  --text-secondary-color: lightgrey;
+  --text-secondary-color: rgb(180, 180, 180);
   --text-input-color: lightgrey;
   --items-color: none;
   --shadow: rgb(184, 188, 200);
@@ -107,10 +107,23 @@ header {
   flex-grow: 1;
 }
 
-@media screen and (max-width: 424px) {
+.submit {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  cursor: pointer;
+  border-radius: 0.5rem;
+  border: var(--BTN-search-border);
+  background-color: var(--BTN-search);
+}
+
+@media screen and (max-width: 520px) {
   body {
-    align-items: flex-start;
+    align-items: flex-start; /* Debug mobile view top slice */
   }
+}
+
+@media screen and (max-width: 425px) {
   .wrapper {
     padding: 0 1rem 1rem;
   }
@@ -124,18 +137,8 @@ header {
     display: none;
   }
   #searcher {
-    width: 1rem; /* Debug */
+    width: 1rem; /* Debug mobile view left side slice */
   }
-}
-
-.submit {
-  padding: 0.5rem 1rem;
-  font-size: 0.9rem;
-  color: var(--text-color);
-  cursor: pointer;
-  border-radius: 0.5rem;
-  border: var(--BTN-search-border);
-  background-color: var(--BTN-search);
 }
 
 /* Main user's content */
@@ -156,7 +159,7 @@ header {
   align-items: center;
 }
 
-.userContainer p {
+.userContainer p, .userContainer small {
   font-size: 0.9rem;
   color: var(--text-secondary-color);
 }
@@ -184,12 +187,37 @@ header {
 }
 
 .joined {
+  color: var(--text-input-color) !important;
   margin: 0 0 auto;
 }
 
 .profile__bio {
   margin: 0.6rem 0 0.4rem;
   grid-column: 1 / -1;
+}
+
+@media screen and (max-width: 425px) {
+  .userContainer {
+    grid-template: repeat(6, min-content) / 1fr;
+  }
+  .avatar {
+    margin: 0;
+    grid-row: span 1;
+    justify-self: center;
+  }
+  .namesContainer {
+    margin-bottom: 0.8rem;
+    text-align: center;
+    order: -1;
+  }
+  .joined {
+    margin: 0.7rem 0 0.4rem;
+    grid-row: 3 / 4;
+    justify-self: center;
+  }
+  .profile__bio {
+    text-align: center;
+  }
 }
 
 /* Stats & Items*/
@@ -201,10 +229,6 @@ header {
   background-color: var(--background);
   justify-content: space-evenly;
   grid-column: 1 / -1;
-}
-
-.stats small {
-  color: var(--text-secondary-color);
 }
 
 .followers {
@@ -253,6 +277,9 @@ header {
   .stats {
     justify-content: space-between;
   }
+  .stats small {
+    font-size: small;
+  }
   .followers {
     margin: 0;
   }
@@ -264,7 +291,8 @@ header {
 /* Flex alternative on items' section 
 
 .itemsContainer {
-  grid-column: span 2;
+  grid-column: 1 / -1;
+  overflow: scroll;
 }
 
 .itemsContainer a {

@@ -8,6 +8,7 @@
   --text-color: aliceblue;
   --text-secondary-color: lightgrey;
   --text-input-color: lightgrey;
+  --items-color: invert(1);
   --shadow: none;
 }
 
@@ -19,6 +20,7 @@
   --text-color: rgba(0, 0, 0, 0.8);
   --text-secondary-color: lightgrey;
   --text-input-color: lightgrey;
+  --items-color: none;
   --shadow: rgb(184, 188, 200);
 }
 
@@ -55,7 +57,7 @@ body {
 }
 
 .wrapper {
-  padding: 1.5rem;
+  padding: 0 1.5rem 1.5rem;
   width: 100%;
   max-width: 768px;
   min-width: 320px;
@@ -98,7 +100,7 @@ header {
   padding: 0.3rem;
   font-size: 0.9rem;
   color: var(--text-input-color);
-  /* text-overflow: ellipsis; */
+  text-overflow: ellipsis;
   outline: none;
   border: none;
   background-color: transparent;
@@ -106,8 +108,11 @@ header {
 }
 
 @media screen and (max-width: 424px) {
+  body {
+    align-items: flex-start;
+  }
   .wrapper {
-    padding: 1rem;
+    padding: 0 1rem 1rem;
   }
   .searchContainer {
     padding: 0.5rem;
@@ -142,7 +147,7 @@ header {
   box-shadow: 0 0 10px var(--shadow);
   background-color: var(--background-card);
   display: grid;
-  grid-template: repeat(4, min-content) / min-content 1fr;
+  grid-template: repeat(5, min-content) / min-content 1fr;
 }
 
 .userContainer > * {
@@ -162,6 +167,7 @@ header {
   height: 120px;
   border-radius: 50%;
   box-shadow: 0 0 10px var(--shadow);
+  background: radial-gradient(var(--background-card), hsla(210, 46%, 95%, 0.2));
   grid-row: span 2;
 }
 
@@ -186,7 +192,7 @@ header {
   grid-column: 1 / -1;
 }
 
-/* Stats */
+/* Stats & Items*/
 
 .stats {
   margin: 1rem 0;
@@ -197,7 +203,38 @@ header {
   grid-column: 1 / -1;
 }
 
+.stats small {
+  color: var(--text-secondary-color);
+}
+
 .stats h3 {
   margin: 0.5rem 0 0;
   text-align: center;
+}
+
+.itemsContainer {
+  padding: 0 0.1rem;
+  grid-column: span 2;
+}
+
+.itemsContainer a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: var(--text-secondary-color);
+}
+
+.itemsContainer__primary,
+.itemsContainer__secondary {
+  margin-right: auto;
+}
+
+.itemsContainer__primary > *, .itemsContainer__secondary > * {
+  display: flex;
+  align-items: center;
+}
+
+.itemsContainer__primary img,
+.itemsContainer__secondary img {
+  padding-right: 0.7rem;
+  filter: var(--items-color);
 }

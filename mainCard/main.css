@@ -70,10 +70,13 @@ header {
 }
 
 .themeContainer {
-  gap: 0.7rem;
   cursor: pointer;
   display: flex;
   align-items: center;
+}
+
+.themeContainer small {
+  padding-right: 0.7rem;
 }
 
 /* Searcher */
@@ -92,7 +95,7 @@ header {
   align-items: center;
 }
 
-.magnifying-glass {
+ .magnifying-glass {
   height: 20px;
 }
 
@@ -232,6 +235,7 @@ header {
   }
   .profile__bio {
     text-align: center;
+    justify-self: center;
   }
 }
 
